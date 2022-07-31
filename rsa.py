@@ -14,20 +14,16 @@ while (e < phi):
         e = e + 1
 print('e', e)
 
-for i in range(1, 10):
-    x = 1 + i * phi
-    if x % e == 0:
-        d = int(x / e)
-        break
+d=1
+while((d*e)%phi!=1):
+        d+=1
 print('d', d)
-msg = int(input("Enter message"))
 
+msg = int(input("Enter message"))
 print("Messsage before encryption:", msg)
 
-c = pow(msg, e)
-c = c % n
+c = pow(msg, e, n)
 print("Encrypted data= ", c)
 
-m = pow(c, d)
-m = m % n
+m = pow(c, d, n)
 print("Original Message after decryption=", m)
